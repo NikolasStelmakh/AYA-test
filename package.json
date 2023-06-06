@@ -1,0 +1,21 @@
+{
+  "name": "aya-test",
+  "private": true,
+  "version": "1.0.0",
+  "description": "",
+  "workspaces": ["api"],
+  "engines": {
+    "node": ">=18.13.0"
+  },
+  "scripts": {
+    "parse:dump": "npm run parse:dump --workspace=api",
+    "migrate:up": "npm run migrate:up --workspace=api",
+    "db:types:update": "npm run db:types:update --workspace=api",
+    "api:dev": "npm run start:dev --workspace=api",
+    "api:prod": "npm run start:prod --workspace=api"
+  },
+  "license": "ISC",
+  "dependencies": {
+    "concurrently": "^7.6.0"
+  }
+}

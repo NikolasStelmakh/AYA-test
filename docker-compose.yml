@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  api:
+    container_name: aya-test-api
+    build:
+      context: api/
+      dockerfile: Dockerfile
+    command: npm run start:dev
+    depends_on:
+      - postgres
+    ports:
+      - 3000:3000
+    environment:
+      - POSTGRES_HOST=aya-test-postgres
+
+  postgres:
+    container_name: aya-test-postgres
+    image: postgres:14.1-alpine
+    restart: unless-stopped
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_PASSWORD=ab1f6hh942sm
+      - POSTGRES_USER=johny_cage
+      - POSTGRES_DB=aya_test_local
