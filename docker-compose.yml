@@ -17,6 +17,8 @@ services:
   postgres:
     container_name: aya-test-postgres
     image: postgres:14.1-alpine
+    volumes:
+      - aya_test_db_data:/var/lib/aya-test-db-data/db
     restart: unless-stopped
     ports:
       - 5432:5432
@@ -24,3 +26,5 @@ services:
       - POSTGRES_PASSWORD=ab1f6hh942sm
       - POSTGRES_USER=johny_cage
       - POSTGRES_DB=aya_test_local
+volumes:
+  aya_test_db_data:
